@@ -1,6 +1,7 @@
 {
-  "extends": "nx/presets/npm.json",
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "implicitDependencies": {
+    "go.mod": "*"
+  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
@@ -8,5 +9,6 @@
         "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
-  }
+  },
+  "extends": "nx/presets/npm.json"
 }
