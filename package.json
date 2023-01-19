@@ -2,7 +2,9 @@
   "name": "mji-desktop-app",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "serve": "nx build frontend-frontend && nx serve backend"
+  },
   "private": true,
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",

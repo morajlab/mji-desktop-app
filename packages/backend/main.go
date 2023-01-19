@@ -1,12 +1,12 @@
 package main
 
-import "fmt"
-
-func Hello(name string) string {
-	result := "Hello " + name
-	return result
-}
+import (
+  "github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Println(Hello("backend"))
+	router := gin.Default()
+	router.Static("/", "../../dist/packages/frontend/frontend")
+
+	router.Run(":4200")
 }
