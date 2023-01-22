@@ -1,9 +1,4 @@
 {
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "master",
-  "implicitDependencies": {
-    "go.mod": "*"
-  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
@@ -11,6 +6,11 @@
         "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
+  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "master",
+  "implicitDependencies": {
+    "go.mod": "*"
   },
   "extends": "nx/presets/npm.json",
   "targetDefaults": {
@@ -52,7 +52,8 @@
       },
       "library": {
         "style": "css",
-        "linter": "eslint"
+        "linter": "eslint",
+        "unitTestRunner": "jest"
       }
     }
   }

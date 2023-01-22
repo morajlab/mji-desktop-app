@@ -1,14 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import { Desktop } from '@master/components';
 
-export function App() {
+export const App = () => {
   return (
     <>
-      <NxWelcome title="frontend-frontend" />
-      <div />
+      <Desktop />
     </>
   );
-}
+};
 
 export default App;

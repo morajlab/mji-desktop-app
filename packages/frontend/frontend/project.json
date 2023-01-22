@@ -21,7 +21,8 @@
         ],
         "styles": ["packages/frontend/frontend/src/styles.css"],
         "scripts": [],
-        "webpackConfig": "packages/frontend/frontend/webpack.config.js"
+        "webpackConfig": "packages/frontend/frontend/webpack.config.js",
+        "watch": true
       },
       "configurations": {
         "development": {
