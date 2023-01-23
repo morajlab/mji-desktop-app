@@ -6,5 +6,6 @@ export const Styles = createStyles(() => ({
     top: 'auto',
     bottom: '20px',
     position: 'absolute',
+    padding: '20px',
   },
 }));

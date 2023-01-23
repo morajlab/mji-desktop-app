@@ -4,6 +4,8 @@ import type { ILauncherProps } from './Launcher.types';
 
 export const Styles = createStyles((_theme, props: ILauncherProps) => ({
   root: {
-    backdropFilter: props.backdropFilter ? 'blur(20px)' : 'unset',
+    backdropFilter: props.backdropFilter
+      ? `blur(${props.backdropFilterValue}px)`
+      : 'unset',
   },
 }));
