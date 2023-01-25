@@ -1,4 +1,4 @@
-import { Desktop, Launcher } from '@master/components';
+import { Desktop, Launcher, WindowManager } from '@master/components';
 import { Styles } from './App.styles';
 
 import type { AppComponent } from './App.types';
@@ -8,8 +8,9 @@ export const App: AppComponent = () => {
 
   return (
     <>
-      <Desktop background="url(https://picsum.photos/900/900)" />
+      <Desktop background="url(http://localhost:8090/picsum/picsum.photos/id/237/900/900)" />
       <Launcher className={classes.launcher} />
+      <WindowManager />
     </>
   );
 };
