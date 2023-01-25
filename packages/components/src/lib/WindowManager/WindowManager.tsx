@@ -1,5 +1,6 @@
 import WinBox from 'react-winbox';
-import { useSelector } from './WindowManager.slice';
+import { useSelector } from '@master/store';
+import { useSelectorCB } from './WindowManager.slice';
 
 import type { WindowManagerComponent } from './WindowManager.types';
 
@@ -8,7 +9,7 @@ import 'winbox/dist/css/themes/modern.min.css';
 import 'winbox/dist/css/themes/white.min.css';
 
 export const WindowManager: WindowManagerComponent = () => {
-  const windows = useSelector();
+  const windows = useSelector(useSelectorCB);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { Desktop, Launcher, WindowManager, Provider } from '@master/components';
-import { store } from '@master/store';
+import store from '@master/store';
 import { Styles } from './App.styles';
 
 import type { AppComponent } from './App.types';

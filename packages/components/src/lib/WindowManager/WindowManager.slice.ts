@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useSelector as _useSelector } from '@master/store';
 
 import type {
   IWindowManagerState,
@@ -20,7 +19,11 @@ export const windowManagerSlice = createSlice({
   },
 });
 
-export const useSelector = () =>
-  _useSelector(({ windowmanager }) => windowmanager.value);
+export const useSelectorCB = ({
+  windowmanager,
+}: {
+  windowmanager: IWindowManagerState;
+}) => windowmanager.value;
 
 export const { openWindow } = windowManagerSlice.actions;
+export default windowManagerSlice.reducer;

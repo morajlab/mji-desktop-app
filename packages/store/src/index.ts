@@ -3,12 +3,12 @@ import {
   useDispatch as _useDispatch,
   useSelector as _useSelector,
 } from 'react-redux';
-import { windowManagerSlice } from '@master/components';
+import windowManagerReducer from '@master/components/WindowManager/WindowManager.slice';
 import { configureStore } from '@reduxjs/toolkit';
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    windowmanager: windowManagerSlice.reducer,
+    windowmanager: windowManagerReducer,
   },
 });
 
@@ -18,3 +18,5 @@ export type StoreType = typeof store;
 
 export const useDispatch: () => AppDispatch = _useDispatch;
 export const useSelector: TypedUseSelectorHook<RootState> = _useSelector;
+
+export default store;

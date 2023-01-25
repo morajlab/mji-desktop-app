@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@master/components": ["packages/components/src/index.ts"],
+      "@master/components/*": ["packages/components/src/lib/*"],
       "@master/store": ["packages/store/src/index.ts"]
     }
   },
