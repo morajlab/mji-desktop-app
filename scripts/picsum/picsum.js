@@ -4,7 +4,7 @@ const {
   existsSync,
   mkdirSync,
 } = require('fs');
-const { resolve, join, extname } = require('path');
+const { resolve, join, extname, dirname } = require('path');
 const { createServer } = require('http');
 const { homedir } = require('os');
 const request = require('request');
@@ -24,10 +24,6 @@ const MIME_TYPES = {
 const MESSAGES = {
   invalid_url: 'url is invalid',
 };
-
-if (!existsSync(getCachePath())) {
-  mkdirSync(getCachePath());
-}
 
 function getCachePath(...props) {
   return resolve(join(CACHE_PATH, ...props));
@@ -92,6 +88,12 @@ function callPlugin({ plugin, url }) {
   const path = getCachePath(file.path);
 
   if (!existsSync(path)) {
+    const dir_name = dirname(path);
+
+    if (!existsSync(dir_name)) {
+      mkdirSync(dir_name, { recursive: true });
+    }
+
     request({
       url: file.url,
       headers: {
@@ -138,26 +140,25 @@ function getInfoFromURL(url) {
 }
 
 function startServer(port = 8080) {
-  createServer(({ url }, res) => {
-    let path = '';
-    let status_code = 200;
+  const getRespondCB = (res) => (path, status) => {
+    const ext = extname(path).substring(1).toLowerCase();
+    const mimeType = MIME_TYPES[ext] || MIME_TYPES.default;
+    res.writeHead(status, { 'Content-Type': mimeType });
 
-    console.clear();
-    console.log(url);
+    console.log(path);
+
+    createReadStream(path).pipe(res);
+  };
+
+  createServer(({ url }, res) => {
+    const respondCB = getRespondCB(res);
 
     try {
       validateURL(url);
-      path = callPlugin(getInfoFromURL(url));
-    } catch (err) {
-      path = getCachePath('404.html');
-      status_code = 404;
-      console.log(err.message);
+      respondCB(callPlugin(getInfoFromURL(url)), 200);
+    } catch (_err) {
+      respondCB(resolve(__dirname, '404.html'), 404);
     }
-
-    const ext = extname(path).substring(1).toLowerCase();
-    const mimeType = MIME_TYPES[ext] || MIME_TYPES.default;
-    res.writeHead(status_code, { 'Content-Type': mimeType });
-    createReadStream(path).pipe(res);
   }).listen(port);
 
   console.log(`Server running at http://127.0.0.1:${port}/`);
