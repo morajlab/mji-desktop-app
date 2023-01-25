@@ -21,19 +21,25 @@ export const Launcher: LauncherComponent = ({ className, ...props }) => {
       <Group position="center">
         <Button
           variant="outline"
-          onClick={() => dispatch(openWindow({ content: 'This is window 1' }))}
+          onClick={() =>
+            dispatch(openWindow({ children: <div>This is window 1</div> }))
+          }
         >
           1
         </Button>
         <Button
           variant="outline"
-          onClick={() => dispatch(openWindow({ content: 'This is window 2' }))}
+          onClick={() =>
+            dispatch(openWindow({ children: <div>This is window 2</div> }))
+          }
         >
           2
         </Button>
         <Button
           variant="outline"
-          onClick={() => dispatch(openWindow({ content: 'This is window 3' }))}
+          onClick={() =>
+            dispatch(openWindow({ children: <div>This is window 3</div> }))
+          }
         >
           3
         </Button>
