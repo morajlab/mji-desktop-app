@@ -11,7 +11,11 @@ const defaultProps: Partial<ILauncherProps> = {
   backdropFilterValue: 20,
 };
 
-export const Launcher: LauncherComponent = ({ className, ...props }) => {
+export const Launcher: LauncherComponent = ({
+  className,
+  plugins,
+  ...props
+}) => {
   props = { ...defaultProps, ...props };
   const { classes, cx } = Styles(props);
   const dispatch = useDispatch();
@@ -19,30 +23,15 @@ export const Launcher: LauncherComponent = ({ className, ...props }) => {
   return (
     <div {...props} className={cx(classes.root, className)}>
       <Group position="center">
-        <Button
-          variant="outline"
-          onClick={() =>
-            dispatch(openWindow({ children: <div>This is window 1</div> }))
-          }
-        >
-          1
-        </Button>
-        <Button
-          variant="outline"
-          onClick={() =>
-            dispatch(openWindow({ children: <div>This is window 2</div> }))
-          }
-        >
-          2
-        </Button>
-        <Button
-          variant="outline"
-          onClick={() =>
-            dispatch(openWindow({ children: <div>This is window 3</div> }))
-          }
-        >
-          3
-        </Button>
+        {plugins.map((plugin, key) => (
+          <Button
+            variant="outline"
+            onClick={() => dispatch(openWindow({ children: plugin.render() }))}
+            key={key}
+          >
+            {plugin.name}
+          </Button>
+        ))}
       </Group>
     </div>
   );
