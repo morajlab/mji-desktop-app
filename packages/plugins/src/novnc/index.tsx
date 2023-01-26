@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import { VncScreen } from 'react-vnc';
 
 import type { IPlugin } from '@master/components';
 
@@ -12,6 +12,16 @@ export default class NoVNC implements IPlugin {
   }
 
   render = () => {
-    return createElement('div', null, 'This is NoVNC plugin');
+    return (
+      <VncScreen
+        url="ws://your-vnc-url.com"
+        scaleViewport
+        background="#000000"
+        style={{
+          width: '75vw',
+          height: '75vh',
+        }}
+      />
+    );
   };
 }
