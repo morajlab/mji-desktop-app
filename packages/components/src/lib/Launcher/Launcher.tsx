@@ -23,15 +23,19 @@ export const Launcher: LauncherComponent = ({
   return (
     <div {...props} className={cx(classes.root, className)}>
       <Group position="center">
-        {plugins.map((plugin, key) => (
-          <Button
-            variant="outline"
-            onClick={() => dispatch(openWindow({ children: plugin.render() }))}
-            key={key}
-          >
-            {plugin.name}
-          </Button>
-        ))}
+        {plugins.map((plugin, key) => {
+          const Children = plugin.render();
+
+          return (
+            <Button
+              variant="outline"
+              onClick={() => dispatch(openWindow({ children: <Children /> }))}
+              key={key}
+            >
+              {plugin.name}
+            </Button>
+          );
+        })}
       </Group>
     </div>
   );

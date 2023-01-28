@@ -1,10 +1,10 @@
-import type { ReactElement, FunctionComponent, HTMLAttributes } from 'react';
+import type { FunctionComponent, HTMLAttributes } from 'react';
 
 export interface IPlugin {
   readonly name: string;
   readonly description: string;
 
-  render(): ReactElement;
+  render(): FunctionComponent;
 }
 
 export interface ILauncherProps extends HTMLAttributes<HTMLDivElement> {
