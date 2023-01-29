@@ -31,3 +31,5 @@ export class NoVNC implements IPlugin {
     return NoVNCFC;
   }
 }
+
+export default NoVNC;

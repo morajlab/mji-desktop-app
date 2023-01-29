@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "serve": "npx pm2 start ecosystem.config.js --attach",
-    "stop": "npx pm2 stop all"
+    "stop": "npx pm2 stop all",
+    "build:production": "npx nx build frontend-frontend"
   },
   "private": true,
   "devDependencies": {

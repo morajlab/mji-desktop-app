@@ -12,7 +12,7 @@
         "compiler": "babel",
         "outputPath": "dist/packages/frontend/frontend",
         "index": "packages/frontend/frontend/src/index.html",
-        "baseHref": "/",
+        "baseHref": "/static/",
         "main": "packages/frontend/frontend/src/main.tsx",
         "tsConfig": "packages/frontend/frontend/tsconfig.app.json",
         "assets": [
@@ -21,8 +21,7 @@
         ],
         "styles": ["packages/frontend/frontend/src/styles.css"],
         "scripts": [],
-        "webpackConfig": "packages/frontend/frontend/webpack.config.js",
-        "watch": true
+        "webpackConfig": "packages/frontend/frontend/webpack.config.js"
       },
       "configurations": {
         "development": {

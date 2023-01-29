@@ -1,14 +1,14 @@
 module.exports = {
   apps: [
     {
-      name: 'picsum',
+      name: 'picsum:serve',
       script: './scripts/picsum/picsum.js',
       autorestart: false,
     },
     {
-      name: 'frontend:build',
+      name: 'frontend:build:development',
       script: './node_modules/nx/bin/nx.js',
-      args: 'build frontend-frontend',
+      args: 'run frontend-frontend:build:development --watch',
       autorestart: false,
     },
     {

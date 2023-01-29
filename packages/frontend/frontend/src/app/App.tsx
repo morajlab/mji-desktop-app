@@ -6,8 +6,9 @@ import type { AppComponent } from './App.types';
 
 // TODO: Fetch plugins in server side
 import NoVNC from '@master/plugins/novnc';
+import VagrantInfo from '@master/plugins/vagrant/Info';
 function loadPlugins() {
-  return [new NoVNC()];
+  return [new NoVNC(), new VagrantInfo()];
 }
 
 export const App: AppComponent = () => {
