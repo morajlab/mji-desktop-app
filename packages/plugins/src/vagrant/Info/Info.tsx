@@ -3,8 +3,18 @@ import { Styles } from './Info.styles';
 import type { VagrantInfoComponent } from './Info.types';
 import type { IPlugin } from '@master/components';
 
+const getVagrantInfo = async () => {
+  const response = await (
+    await fetch('http://localhost:4200/api/v1/vagrant/')
+  ).json();
+
+  console.log(response);
+};
+
 const VagrantInfoFC: VagrantInfoComponent = () => {
   const { classes } = Styles();
+
+  getVagrantInfo();
 
   return <div className={classes.root}>Vagrant info plugin</div>;
 };
