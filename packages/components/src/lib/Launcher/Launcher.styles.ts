@@ -1,12 +1,12 @@
 import { createStyles } from '@mantine/core';
 
-import type { ILauncherProps } from './Launcher.types';
+import type { ILauncherStylesParams } from './Launcher.types';
 
 export const Styles = createStyles(
-  (_theme, props: Partial<ILauncherProps>) => ({
+  (_theme, { backdropFilter, backdropFilterValue }: ILauncherStylesParams) => ({
     root: {
-      backdropFilter: props.backdropFilter
-        ? `blur(${props.backdropFilterValue}px)`
+      backdropFilter: backdropFilter
+        ? `blur(${backdropFilterValue}px)`
         : 'unset',
     },
   })

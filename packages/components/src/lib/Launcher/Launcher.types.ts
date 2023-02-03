@@ -1,4 +1,5 @@
-import type { FunctionComponent, HTMLAttributes } from 'react';
+import type { FunctionComponent } from 'react';
+import type { MantineNumberSize, DefaultProps } from '@mantine/core';
 
 export interface IPlugin {
   readonly name: string;
@@ -7,10 +8,15 @@ export interface IPlugin {
   render(): FunctionComponent;
 }
 
-export interface ILauncherProps extends HTMLAttributes<HTMLDivElement> {
-  plugins: IPlugin[];
+export interface ILauncherStylesParams {
   backdropFilter?: boolean;
-  backdropFilterValue?: number;
+  backdropFilterValue?: MantineNumberSize;
 }
 
-export type LauncherComponent = FunctionComponent<ILauncherProps>;
+export interface ILauncherProps extends ILauncherStylesParams {
+  plugins: IPlugin[];
+}
+
+export type LauncherComponent<T extends string> = FunctionComponent<
+  ILauncherProps & DefaultProps<T, ILauncherStylesParams>
+>;

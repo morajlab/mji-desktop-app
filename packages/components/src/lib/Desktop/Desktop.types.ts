@@ -1,7 +1,12 @@
 import type { FunctionComponent } from 'react';
+import type { DefaultProps } from '@mantine/core';
 
-export interface IDesktopProps {
+export interface IDesktopStylesParams {
   background?: string;
 }
 
-export type DesktopComponent = FunctionComponent<IDesktopProps>;
+export interface IDesktopProps extends IDesktopStylesParams {}
+
+export type DesktopComponent<T extends string> = FunctionComponent<
+  IDesktopProps & DefaultProps<T, IDesktopStylesParams>
+>;
