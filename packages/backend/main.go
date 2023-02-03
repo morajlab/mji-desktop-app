@@ -4,7 +4,7 @@ import (
   "net/http"
   "path/filepath"
   "github.com/gin-gonic/gin"
-  "github.com/bmatcuk/go-vagrant"
+  "github.com/morajlab/go-vagrant"
 )
 
 func createStaticRouter(router *gin.Engine) {
@@ -27,7 +27,7 @@ func createAPIRouter(router *gin.Engine) {
 }
 
 func getVagrantGlobalStatus(context *gin.Context) {
-  client, err := vagrant.NewVagrantClient(".")
+  client, err := vagrant.NewVagrantClient()
 
   if err != nil {
     panic(err)

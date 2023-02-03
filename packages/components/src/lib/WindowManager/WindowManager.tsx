@@ -1,6 +1,5 @@
 import WinBox from 'react-winbox';
-import { useSelector } from '@master/store';
-import { useSelectorCB } from './WindowManager.slice';
+import { useWMSelector } from './WindowManager.slice';
 
 import type {
   WindowManagerComponent,
@@ -19,7 +18,7 @@ const default_info: Partial<IWindowInfo> = {
 };
 
 export const WindowManager: WindowManagerComponent = () => {
-  const windows = useSelector(useSelectorCB);
+  const windows = useWMSelector();
 
   return (
     <>

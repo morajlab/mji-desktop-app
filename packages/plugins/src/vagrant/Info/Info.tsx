@@ -5,7 +5,9 @@ import type { IPlugin } from '@master/components';
 
 const getVagrantInfo = async () => {
   const response = await (
-    await fetch('http://localhost:4200/api/v1/vagrant/')
+    await fetch('http://localhost:4200/api/v1/vagrant/global-status', {
+      method: 'POST',
+    })
   ).json();
 
   console.log(response);
