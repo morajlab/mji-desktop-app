@@ -22,14 +22,6 @@ const VagrantInfoFC: VagrantInfoComponent = () => {
 };
 
 export class VagrantInfo implements IPlugin {
-  public readonly name: string;
-  public readonly description: string;
-
-  constructor() {
-    this.name = 'Vagrant Info';
-    this.description = 'Get Vagrant information';
-  }
-
   render() {
     return VagrantInfoFC;
   }

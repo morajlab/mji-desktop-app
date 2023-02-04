@@ -2,9 +2,6 @@ import type { FunctionComponent } from 'react';
 import type { MantineNumberSize, DefaultProps } from '@mantine/core';
 
 export interface IPlugin {
-  readonly name: string;
-  readonly description: string;
-
   render(): FunctionComponent;
 }
 

@@ -1,0 +1,9 @@
+{
+  "name": "info",
+  "version": "0.0.0",
+  "description": "Get Vagrant information",
+  "main": "./src/index.ts",
+  "vplugin": {
+    "title": "Vagrant Info"
+  }
+}
