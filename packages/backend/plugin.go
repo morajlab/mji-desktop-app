@@ -48,14 +48,15 @@ func GetPlugins() (Plugins, error) {
 	}
 
 	for _, dir := range dirs {
-		package_path := filepath.Join(plugins_root, dir, "package.json")
-		data_json, err := os.ReadFile(package_path)
+		plugin_root := filepath.Join(plugins_root, dir)
+		data_json, err := os.ReadFile(filepath.Join(plugin_root, "package.json"))
 
 		if err == nil {
 		  var data_map map[string]interface{} // TODO: Needs garbage collecting
 
+      // TODO: Validate 'package.json' data
 			json.Unmarshal([]byte(data_json), &data_map)
-			plugins = append(plugins, map[string]interface{}{ "path": package_path, "meta": data_map })
+			plugins = append(plugins, map[string]interface{}{ "path": filepath.Join(plugin_root, data_map["main"].(string)), "meta": data_map })
 		}
 	}
 

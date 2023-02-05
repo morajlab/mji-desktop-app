@@ -2,7 +2,7 @@
   "name": "info",
   "version": "0.0.0",
   "description": "Get Vagrant information",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
   "vplugin": {
     "title": "Vagrant Info"
   }

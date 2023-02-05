@@ -1,9 +1,6 @@
 import type { FunctionComponent } from 'react';
+import type { IPluginItem } from '@master/types';
 import type { MantineNumberSize, DefaultProps } from '@mantine/core';
-
-export interface IPlugin {
-  render(): FunctionComponent;
-}
 
 export interface ILauncherStylesParams {
   backdropFilter?: boolean;
@@ -11,7 +8,7 @@ export interface ILauncherStylesParams {
 }
 
 export interface ILauncherProps extends ILauncherStylesParams {
-  plugins: IPlugin[];
+  plugins: IPluginItem[];
 }
 
 export type LauncherComponent<T extends string> = FunctionComponent<

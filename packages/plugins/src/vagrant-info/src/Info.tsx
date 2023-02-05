@@ -1,7 +1,6 @@
 import { Styles } from './Info.styles';
 
 import type { VagrantInfoComponent } from './Info.types';
-import type { IPlugin } from '@master/components';
 
 const getVagrantInfo = async () => {
   const response = await (
@@ -13,18 +12,12 @@ const getVagrantInfo = async () => {
   console.log(response);
 };
 
-const VagrantInfoFC: VagrantInfoComponent = () => {
+export const VagrantInfo: VagrantInfoComponent = () => {
   const { classes } = Styles();
 
   getVagrantInfo();
 
   return <div className={classes.root}>Vagrant info plugin</div>;
 };
-
-export class VagrantInfo implements IPlugin {
-  render() {
-    return VagrantInfoFC;
-  }
-}
 
 export default VagrantInfo;
