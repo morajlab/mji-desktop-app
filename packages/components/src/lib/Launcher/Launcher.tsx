@@ -1,4 +1,5 @@
 import {
+  Menu,
   Group,
   Button,
   Selectors,
@@ -34,18 +35,20 @@ export const Launcher: LauncherComponent<Selectors<typeof Styles>> = (
     { name, classNames, styles, unstyled }
   );
   const dispatch = useDispatch();
-
+  //onClick={() => dispatch(openWindow(plugin))}
   return (
     <div className={cx(classes.root, className)} {...others}>
       <Group position="center">
         {plugins.map((plugin, key) => (
-          <Button
-            variant="outline"
-            onClick={() => dispatch(openWindow(plugin))}
-            key={key}
-          >
-            {plugin.meta.name}
-          </Button>
+          <Menu shadow="md" width={200} key={key}>
+            <Menu.Target>
+              <Button>{plugin.meta.name}</Button>
+            </Menu.Target>
+            <Menu.Dropdown>
+              <Menu.Label>Application</Menu.Label>
+              <Menu.Item>Settings</Menu.Item>
+            </Menu.Dropdown>
+          </Menu>
         ))}
       </Group>
     </div>

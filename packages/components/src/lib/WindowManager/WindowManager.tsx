@@ -21,7 +21,11 @@ export const WindowManager: WindowManagerComponent = () => {
   return (
     <>
       {plugins.map((plugin, key) => {
-        const PluginComponent = lazy(() => import(`${plugin.path}`));
+        const PluginComponent = lazy(() =>
+          import(plugin.path.replace(/\\/g, '/')).then((module) => ({
+            default: module.default as any,
+          }))
+        );
 
         return (
           <WinBox key={key} {...default_info}>
