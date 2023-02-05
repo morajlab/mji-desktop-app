@@ -17,6 +17,9 @@ const apps = [
     name: 'plugins:storybook',
     script: './node_modules/nx/bin/nx.js',
     args: 'run plugins:storybook',
+    env: {
+      NODE_OPTIONS: '--openssl-legacy-provider',
+    },
   },
   {
     name: 'backend:serve',
