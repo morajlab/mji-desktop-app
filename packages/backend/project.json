@@ -8,13 +8,13 @@
       "executor": "@nx-go/nx-go:build",
       "options": {
         "outputPath": "dist/packages/backend",
-        "main": "packages/backend/main.go"
+        "main": "."
       }
     },
     "serve": {
       "executor": "@nx-go/nx-go:serve",
       "options": {
-        "main": "packages/backend/main.go"
+        "main": "."
       }
     },
     "test": {
