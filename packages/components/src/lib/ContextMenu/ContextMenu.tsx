@@ -2,13 +2,17 @@ import { getContextItemIndex } from '@mantine/utils';
 import { useUncontrolled } from '@mantine/hooks';
 import { useComponentDefaultProps } from '@mantine/styles';
 import { Popover } from '@mantine/core';
-import { MenuDivider } from '@mantine/core/lib/Menu/MenuDivider/MenuDivider';
-import { MenuDropdown } from '@mantine/core/lib/Menu/MenuDropdown/MenuDropdown';
-import { MenuItem } from '@mantine/core/lib/Menu/MenuItem/MenuItem';
-import { MenuLabel } from '@mantine/core/lib/Menu/MenuLabel/MenuLabel';
 import { ContextMenuTarget } from './ContextMenuTarget';
-import { MenuContextProvider } from '@mantine/core/lib/Menu/Menu.context';
-import useStyles from '@mantine/core/lib/Menu/Menu.styles';
+const {
+  MenuDivider,
+} = require('@mantine/core/esm/Menu/MenuDivider/MenuDivider');
+const {
+  MenuDropdown,
+} = require('@mantine/core/esm/Menu/MenuDropdown/MenuDropdown');
+const { MenuItem } = require('@mantine/core/esm/Menu/MenuItem/MenuItem');
+const { MenuLabel } = require('@mantine/core/esm/Menu/MenuLabel/MenuLabel');
+const { MenuContextProvider } = require('@mantine/core/esm/Menu/Menu.context');
+const useStyles = require('@mantine/core/esm/Menu/Menu.styles').default;
 
 import type { ContextMenuProps } from './ContextMenu.types';
 

@@ -2,8 +2,8 @@ import { cloneElement, forwardRef } from 'react';
 import { Popover } from '@mantine/core';
 import { isElement, createEventHandler } from '@mantine/utils';
 import { useComponentDefaultProps } from '@mantine/styles';
-import { useMenuContext } from '@mantine/core/lib/Menu/Menu.context';
-import { MENU_ERRORS } from '@mantine/core/lib/Menu/Menu.errors';
+const { useMenuContext } = require('@mantine/core/esm/Menu/Menu.context');
+const { MENU_ERRORS } = require('@mantine/core/esm/Menu/Menu.errors');
 
 import type { ContextMenuTargetProps } from './ContextMenu.types';
 

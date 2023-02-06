@@ -1,12 +1,12 @@
 import {
-  Menu,
   Group,
   Button,
   Selectors,
   useComponentDefaultProps,
 } from '@mantine/core';
 import { useDispatch } from '@master/store';
-import { openWindow } from '../WindowManager';
+// import { openWindow } from '../WindowManager';
+import { ContextMenu } from '../ContextMenu';
 import { Styles } from './Launcher.styles';
 
 import type { LauncherComponent, ILauncherProps } from './Launcher.types';
@@ -40,15 +40,15 @@ export const Launcher: LauncherComponent<Selectors<typeof Styles>> = (
     <div className={cx(classes.root, className)} {...others}>
       <Group position="center">
         {plugins.map((plugin, key) => (
-          <Menu shadow="md" width={200} key={key}>
-            <Menu.Target>
+          <ContextMenu shadow="md" width={200} key={key}>
+            <ContextMenu.Target>
               <Button>{plugin.meta.name}</Button>
-            </Menu.Target>
-            <Menu.Dropdown>
-              <Menu.Label>Application</Menu.Label>
-              <Menu.Item>Settings</Menu.Item>
-            </Menu.Dropdown>
-          </Menu>
+            </ContextMenu.Target>
+            <ContextMenu.Dropdown>
+              <ContextMenu.Label>Application</ContextMenu.Label>
+              <ContextMenu.Item>Settings</ContextMenu.Item>
+            </ContextMenu.Dropdown>
+          </ContextMenu>
         ))}
       </Group>
     </div>
