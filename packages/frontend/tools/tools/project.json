@@ -1,0 +1,67 @@
+{
+  "name": "frontend-tools-tools",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/frontend/tools/tools/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/frontend/tools/tools",
+        "main": "packages/frontend/tools/tools/src/index.ts",
+        "tsConfig": "packages/frontend/tools/tools/tsconfig.lib.json",
+        "assets": [
+          "packages/frontend/tools/tools/*.md",
+          {
+            "input": "./packages/frontend/tools/tools/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/frontend/tools/tools/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/frontend/tools/tools",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/frontend/tools/tools",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/frontend/tools/tools/**/*.ts",
+          "packages/frontend/tools/tools/generators.json",
+          "packages/frontend/tools/tools/executors.json",
+          "packages/frontend/tools/tools/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/frontend/tools/tools/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

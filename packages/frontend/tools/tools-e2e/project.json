@@ -1,0 +1,17 @@
+{
+  "name": "frontend-tools-tools-e2e",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "packages/frontend/tools/tools-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/nx-plugin:e2e",
+      "options": {
+        "target": "frontend-tools-tools:build",
+        "jestConfig": "packages/frontend/tools/tools-e2e/jest.config.ts"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["frontend-tools-tools"]
+}

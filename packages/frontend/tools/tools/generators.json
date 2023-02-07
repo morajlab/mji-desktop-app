@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "frontend-tools-tools",
+  "version": "0.0.1",
+  "generators": {
+    "frontend-tools-tools": {
+      "factory": "./src/generators/frontend-tools-tools/generator",
+      "schema": "./src/generators/frontend-tools-tools/schema.json",
+      "description": "frontend-tools-tools generator"
+    }
+  }
+}

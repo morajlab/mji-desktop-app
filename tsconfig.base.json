@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@master/plugins/*": ["packages/plugins/src/*"],
+      "@master/tools": ["packages/frontend/tools/tools/src/index.ts"],
       "@master/types": ["packages/types/src/index.ts"]
     }
   },
