@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Desktop, Launcher, WindowManager, Provider } from '@master/components';
-import store from '@master/store';
+import { Desktop, Launcher, WindowManager, Provider } from '../components';
+import store from '../store';
 import { Styles } from './App.styles';
 
 import type { IPluginItem } from '@master/types';

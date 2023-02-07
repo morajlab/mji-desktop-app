@@ -1,5 +1,5 @@
 import type { FunctionComponent, ReactNode } from 'react';
-import type { StoreType } from '@master/store';
+import type { StoreType } from '../../store';
 
 export interface IProviderProps {
   store: StoreType;

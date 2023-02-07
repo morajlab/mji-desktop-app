@@ -3,7 +3,7 @@ import {
   useDispatch as _useDispatch,
   useSelector as _useSelector,
 } from 'react-redux';
-import windowManagerReducer from '@master/components/WindowManager/WindowManager.slice';
+import windowManagerReducer from '../components/WindowManager/WindowManager.slice';
 import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({

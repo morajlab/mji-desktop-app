@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useSelector } from '@master/store';
+import { useSelector } from '../../store';
 
 import type {
   IWindowManagerState,

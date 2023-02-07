@@ -4,7 +4,7 @@ import {
   Selectors,
   useComponentDefaultProps,
 } from '@mantine/core';
-import { useDispatch } from '@master/store';
+import { useDispatch } from '../../store';
 // import { openWindow } from '../WindowManager';
 import { ContextMenu } from '../ContextMenu';
 import { Styles } from './Launcher.styles';

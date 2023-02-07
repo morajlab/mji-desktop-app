@@ -15,10 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@master/components": ["packages/components/src/index.ts"],
-      "@master/components/*": ["packages/components/src/lib/*"],
       "@master/plugins/*": ["packages/plugins/src/*"],
-      "@master/store": ["packages/store/src/index.ts"],
       "@master/types": ["packages/types/src/index.ts"]
     }
   },
