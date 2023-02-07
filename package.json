@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "app:serve": "npx pm2 start pm2.config.js --only \"picsum:serve,frontend:build:development,backend:serve\" --attach",
-    "storybook:serve": "npx pm2 start pm2.config.js --only \"picsum:serve,plugins:storybook,backend:serve\" --attach",
+    "storybook:serve": "npx pm2 start pm2.config.js --only \"picsum:serve,plugins:storybook,frontend:storybook,backend:serve\" --attach",
     "stop": "npx pm2 stop all",
     "app:build:production": "npx nx build frontend-frontend"
   },
@@ -90,6 +90,7 @@
   ],
   "lint-staged": {
     "**/*": "prettier -w -u",
-    "**/*.css": "stylelint"
+    "**/*.css": "stylelint",
+    "**/*.go": "go fmt"
   }
 }

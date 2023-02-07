@@ -22,6 +22,14 @@ const apps = [
     },
   },
   {
+    name: 'frontend:storybook',
+    script: './node_modules/nx/bin/nx.js',
+    args: 'run frontend-frontend:storybook',
+    env: {
+      NODE_OPTIONS: '--openssl-legacy-provider',
+    },
+  },
+  {
     name: 'backend:serve',
     script: './node_modules/nx/bin/nx.js',
     args: 'serve backend',

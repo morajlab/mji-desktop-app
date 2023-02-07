@@ -3,7 +3,7 @@ import { VagrantInfo } from './Info';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
-  title: 'VagrantInfo',
+  title: 'Plugins/VagrantInfo',
   component: VagrantInfo,
 } as ComponentMeta<typeof VagrantInfo>;
 
