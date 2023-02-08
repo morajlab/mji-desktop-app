@@ -4,6 +4,46 @@
   "sourceRoot": "packages/frontend/frontend/src",
   "projectType": "application",
   "targets": {
+    "esbuild": {
+      "executor": "@master/frontend-tools:bundle",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/packages/frontend/frontend",
+        "index": "packages/frontend/frontend/src/index.html",
+        "baseHref": "/static/",
+        "main": "packages/frontend/frontend/src/main.tsx",
+        "tsConfig": "packages/frontend/frontend/tsconfig.app.json",
+        "assets": [
+          "packages/frontend/frontend/src/favicon.ico",
+          "packages/frontend/frontend/src/assets"
+        ],
+        "styles": ["packages/frontend/frontend/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/frontend/frontend/src/environments/environment.ts",
+              "with": "packages/frontend/frontend/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
     "build": {
       "executor": "@nrwl/webpack:webpack",
       "outputs": ["{options.outputPath}"],
