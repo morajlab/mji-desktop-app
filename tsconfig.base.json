@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@master/plugins/*": ["packages/plugins/src/*"],
+      "@master/plugins": ["packages/plugins/src/index.ts"],
       "@master/frontend-tools": ["packages/frontend/tools/tools/src/index.ts"],
       "@master/types": ["packages/types/src/index.ts"]
     }

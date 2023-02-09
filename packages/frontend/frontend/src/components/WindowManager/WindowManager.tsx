@@ -1,6 +1,6 @@
-import { lazy } from 'react';
 import WinBox, { WinBoxPropType } from 'react-winbox';
-import { useWMSelector } from './WindowManager.slice';
+import { useDispatch } from '../../store';
+import { useWMSelector, closeWindow } from './WindowManager.slice';
 
 import type { WindowManagerComponent } from './WindowManager.types';
 
@@ -15,24 +15,25 @@ const default_info: Partial<WinBoxPropType> = {
   y: 'center',
 };
 
-export const WindowManager: WindowManagerComponent = () => {
-  const plugins = useWMSelector();
+export const WindowManager: WindowManagerComponent = ({ plugins }) => {
+  const dispath = useDispatch();
+  const pluginsState = useWMSelector();
 
   return (
     <>
-      {plugins.map((plugin, key) => {
-        const PluginComponent = lazy(() =>
-          import(plugin.path.replace(/\\/g, '/')).then((module) => ({
-            default: module.default as any,
-          }))
-        );
-
-        return (
-          <WinBox key={key} {...default_info}>
-            <PluginComponent />
+      {plugins
+        .filter(({ id }) => id in pluginsState)
+        .map((plugin) => (
+          <WinBox
+            key={plugin.id}
+            onClose={() => {
+              dispath(closeWindow(plugin.id));
+            }}
+            {...default_info}
+          >
+            <plugin.component />
           </WinBox>
-        );
-      })}
+        ))}
     </>
   );
 };

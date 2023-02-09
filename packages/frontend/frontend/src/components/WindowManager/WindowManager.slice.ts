@@ -7,7 +7,7 @@ import type {
 } from './WindowManager.types';
 
 const initialState: IWindowManagerState = {
-  value: [],
+  value: {},
 };
 
 export const windowManagerSlice = createSlice({
@@ -15,7 +15,14 @@ export const windowManagerSlice = createSlice({
   initialState,
   reducers: {
     openWindow: (state, action: PayloadActionType) => {
-      state.value.push(action.payload);
+      if (!(action.payload in state.value)) {
+        state.value[action.payload] = true;
+      }
+    },
+    closeWindow: (state, action: PayloadActionType) => {
+      if (action.payload in state.value) {
+        delete state.value[action.payload];
+      }
     },
   },
 });
@@ -26,5 +33,5 @@ export const useWMSelector = () =>
       windowmanager.value
   );
 
-export const { openWindow } = windowManagerSlice.actions;
+export const { openWindow, closeWindow } = windowManagerSlice.actions;
 export default windowManagerSlice.reducer;

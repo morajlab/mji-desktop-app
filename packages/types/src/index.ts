@@ -1,3 +1,7 @@
+import type { FC } from 'react';
+
+export type PluginID = string;
+
 export interface IPluginMeta {
   name: string;
   description: string;
@@ -5,6 +9,8 @@ export interface IPluginMeta {
 }
 
 export interface IPluginItem {
+  component: FC;
   path: string;
   meta: IPluginMeta;
+  id: PluginID;
 }
