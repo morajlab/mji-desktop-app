@@ -1,9 +1,0 @@
-{
-  "name": "info",
-  "version": "0.0.0",
-  "description": "Get Vagrant information",
-  "main": "./dist/index.js",
-  "vplugin": {
-    "title": "Vagrant Info"
-  }
-}

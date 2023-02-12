@@ -5,6 +5,11 @@
       "implementation": "./src/executors/bundle/executor",
       "schema": "./src/executors/bundle/schema.json",
       "description": "bundle executor"
+    },
+    "plugin": {
+      "implementation": "./src/executors/plugin/executor",
+      "schema": "./src/executors/plugin/schema.json",
+      "description": "plugin executor"
     }
   }
 }

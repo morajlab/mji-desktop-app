@@ -1,6 +1,6 @@
-import { Styles } from './Info.styles';
+import { Styles } from './Vagrant.styles';
 
-import type { VagrantInfoComponent } from './Info.types';
+import type { VagrantComponent } from './Vagrant.types';
 
 const getVagrantInfo = async () => {
   const response = await (
@@ -12,7 +12,7 @@ const getVagrantInfo = async () => {
   console.log(response);
 };
 
-export const VagrantInfo: VagrantInfoComponent = () => {
+export const Vagrant: VagrantComponent = () => {
   const { classes } = Styles();
 
   getVagrantInfo();
@@ -20,4 +20,4 @@ export const VagrantInfo: VagrantInfoComponent = () => {
   return <div className={classes.root}>Vagrant info plugin</div>;
 };
 
-export default VagrantInfo;
+export default Vagrant;

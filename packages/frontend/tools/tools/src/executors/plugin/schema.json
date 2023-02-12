@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "cli": "nx",
+  "title": "Plugin executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "description": "Plugins path"
+    },
+    "main": {
+      "type": "string",
+      "description": "Main file path"
+    },
+    "template": {
+      "type": "string",
+      "description": "Template file path"
+    }
+  },
+  "required": ["path"]
+}

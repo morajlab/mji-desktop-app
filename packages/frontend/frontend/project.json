@@ -4,6 +4,14 @@
   "sourceRoot": "packages/frontend/frontend/src",
   "projectType": "application",
   "targets": {
+    "plugin": {
+      "executor": "@master/frontend-tools:plugin",
+      "options": {
+        "path": "packages/plugins/src",
+        "main": "packages/plugins/src/index.ts",
+        "template": "packages/plugins/src/index.ts.__tmpl__"
+      }
+    },
     "esbuild": {
       "executor": "@master/frontend-tools:bundle",
       "outputs": ["{options.outputPath}"],
